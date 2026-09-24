@@ -4,8 +4,20 @@ import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useLanguage } from "@/providers/language-provider";
-import { ArrowRight, Download, Github, Linkedin, Mail, MapPin, Mouse, Sparkles } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail, MapPin, Sparkles } from "lucide-react";
 import { ContactModal } from "@/components/modals/contact-modal";
+
+const SLIDER_IMAGES = [
+    "/assets/profile-photo.webp",
+    "/hero-slider/pic1.jpeg",
+    "/hero-slider/pic2.jpeg",
+    "/hero-slider/pic3.jpeg",
+    "/hero-slider/pic4.jpeg",
+    "/hero-slider/pic5.jpeg",
+] as const;
+
+// Duplicate for seamless infinite loop
+const MOBILE_STRIP = [...SLIDER_IMAGES, ...SLIDER_IMAGES];
 
 const TRACK_1 = [
     "/assets/profile-photo.webp",
@@ -54,7 +66,7 @@ export default function Hero() {
             {/* Subtle background technical grid */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:36px_36px] pointer-events-none -z-10" />
 
-            {/* Dual Column Image Slider Layout (hidden on mobile/tablet to eliminate text collision on 440x956) */}
+            {/* Desktop Dual Column Image Slider */}
             <motion.div
                 style={{ opacity }}
                 className="hidden lg:flex absolute top-0 right-8 lg:right-16 xl:right-28 bottom-0 h-full w-72 lg:w-96 gap-3 sm:gap-4 px-2 overflow-hidden z-5 pointer-events-none select-none opacity-[0.22] dark:opacity-[0.28] mix-blend-luminosity"
@@ -113,7 +125,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-linear-to-r from-background via-transparent to-transparent pointer-events-none z-10" />
             </motion.div>
 
-            {/* Main Content Container (100% crisp, perfectly formatted for 440x956 mobile viewports) */}
+            {/* Main Content */}
             <motion.div
                 style={{ opacity, scale, y }}
                 className="relative z-20 flex-1 flex flex-col justify-center w-full max-w-7xl mx-auto my-auto gap-8 sm:gap-10"
@@ -136,7 +148,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* Main Headline & Positioning */}
+                {/* Main Headline */}
                 <div className="flex flex-col gap-5 sm:gap-6 max-w-3xl">
                     <div className="space-y-1 sm:space-y-2">
                         <span className="text-xs sm:text-sm font-mono tracking-[0.2em] text-primary uppercase font-semibold flex items-center gap-2">
@@ -178,7 +190,7 @@ export default function Hero() {
                         </a>
                     </div>
 
-                    {/* Social Links Bar */}
+                    {/* Social Links */}
                     <div className="flex items-center gap-3 pt-2">
                         <a
                             href="https://github.com/muhammadsahalvm"
@@ -206,9 +218,33 @@ export default function Hero() {
                             <Mail size={16} />
                         </button>
                     </div>
+
+                    {/* Mobile Horizontal Photo Strip — visible only on mobile/tablet */}
+                    <div className="lg:hidden w-full overflow-hidden mt-2 -mx-0">
+                        <div
+                            className="flex gap-3 animate-mobile-strip"
+                            style={{ width: "max-content" }}
+                        >
+                            {MOBILE_STRIP.map((src, idx) => (
+                                <div
+                                    key={idx}
+                                    className="relative shrink-0 w-20 h-28 sm:w-24 sm:h-32 rounded-2xl overflow-hidden border border-border/20 shadow-sm"
+                                >
+                                    <Image
+                                        src={src}
+                                        alt="Muhammad Sahal"
+                                        fill
+                                        sizes="80px"
+                                        priority={idx < 3}
+                                        className="object-cover object-center grayscale contrast-[1.05] brightness-[0.9]"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
-                {/* Bottom Scroll Indicator */}
+                {/* Bottom Footer Row */}
                 <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-border/30 mt-auto">
                     <div className="text-[10px] sm:text-xs font-mono tracking-widest text-muted-foreground/60 uppercase">
                         [01 / HERO] — FULL STACK ARCHITECTURE
@@ -217,7 +253,6 @@ export default function Hero() {
                         onClick={scrollToProjects}
                         className="flex items-center gap-1.5 text-[10px] sm:text-xs font-mono tracking-widest text-muted-foreground hover:text-foreground uppercase transition-colors"
                     >
-                        <Mouse size={13} />
                         Scroll Down
                     </button>
                 </div>

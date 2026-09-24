@@ -2,7 +2,7 @@
   "about": {
     "intro": "I build responsive, secure and scalable web applications across frontend, backend and database layers.",
     "description": "Full Stack Developer with hands-on experience building scalable web applications using React.js, JavaScript, HTML5, CSS3, Python/Django, Flask and RESTful APIs. Focused on clear backend architecture, input validation, database design, and clean maintainable code.",
-    "full": "Hi, I'm **Muhammad Sahal**, a Full Stack Developer based in Bangalore, India.\n\nI specialize in building scalable, secure, and responsive web applications across the entire stack. My experience spans frontend user interfaces with React.js, JavaScript, HTML5, CSS3, and Bootstrap, as well as robust backend services using Python/Django, Flask, and RESTful APIs with MySQL, SQLite, and MongoDB databases.\n\nI have designed role-based applications, implemented secure authentication and authorization systems (session-based and bcrypt hashing), engineered CSRF protections, and built AI-enabled services using Retrieval-Augmented Generation (RAG), semantic search, and prompt engineering.\n\nI am pursuing a B.E. in Information Science and Engineering at Yenepoya Institute of Technology (affiliated to VTU), graduating in 2026."
+    "full": "Hi, I'm **Muhammad Sahal**, a Full Stack Developer based in Bangalore, India.\n\nI specialize in building scalable, secure, and responsive web applications across the entire stack. My experience spans frontend user interfaces with React.js, JavaScript, HTML5, CSS3, and Bootstrap, as well as robust backend services using Python/Django, Flask, and RESTful APIs with MySQL, SQLite, and MongoDB databases.\n\nI have designed role-based applications, implemented secure authentication and authorization systems (session-based and bcrypt hashing), engineered CSRF protections, and built AI-enabled services using Retrieval-Augmented Generation (RAG), semantic search, and prompt engineering.\n\nB.E. graduate in Information Science and Engineering from Yenepoya Institute of Technology (affiliated with VTU), 2026."
   },
   "manifesto": [
     "RESPONSIVE BY DEFAULT",
@@ -30,7 +30,14 @@
       "image": "/projects/salam-mart.png",
       "demo": "",
       "repo": "",
-      "stack": ["Python", "Django", "SQLite", "HTML5", "CSS3", "JavaScript"],
+      "stack": [
+        "Python",
+        "Django",
+        "SQLite",
+        "HTML5",
+        "CSS3",
+        "JavaScript"
+      ],
       "caseStudy": {
         "problem": "Online grocery purchasing and management requires distinct user role permissions, secure transaction workflows, and reliable stock lifecycle management.",
         "solution": "A role-based full-stack grocery application built using Django, featuring Customer, Staff, and Owner/Admin control panels.",
@@ -62,7 +69,13 @@
       "image": "/projects/career-companion.png",
       "demo": "",
       "repo": "",
-      "stack": ["Python", "Machine Learning", "NLP", "RAG", "Generative AI"]
+      "stack": [
+        "Python",
+        "Machine Learning",
+        "NLP",
+        "RAG",
+        "Generative AI"
+      ]
     },
     {
       "id": "3",
@@ -78,7 +91,11 @@
       "image": "/projects/saloon-img.png",
       "demo": "",
       "repo": "",
-      "stack": ["React.js", "JavaScript", "MongoDB"]
+      "stack": [
+        "React.js",
+        "JavaScript",
+        "MongoDB"
+      ]
     },
     {
       "id": "4",
@@ -93,7 +110,12 @@
       "image": "/projects/food-waste-img.png",
       "demo": "",
       "repo": "https://github.com/muhammadsahalvm/leftover-food-selling-website-",
-      "stack": ["HTML", "CSS", "JavaScript", "MySQL"]
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "MySQL"
+      ]
     }
   ],
   "otherProjects": [
@@ -109,7 +131,12 @@
       ],
       "image": "/projects/doc-analyzer.png",
       "repo": "https://github.com/muhammadsahalvm/smart-document-analyzer-clean",
-      "stack": ["Python", "RAG", "Semantic Search", "Third-Party APIs"]
+      "stack": [
+        "Python",
+        "RAG",
+        "Semantic Search",
+        "Third-Party APIs"
+      ]
     },
     {
       "id": "other-2",
@@ -122,7 +149,13 @@
         "Built responsive login, registration, and dashboard views."
       ],
       "repo": "https://github.com/muhammadsahalvm/password-authentication-system",
-      "stack": ["Python", "Flask", "bcrypt", "HTML", "CSS"]
+      "stack": [
+        "Python",
+        "Flask",
+        "bcrypt",
+        "HTML",
+        "CSS"
+      ]
     }
   ],
   "roadmap": [
@@ -132,7 +165,17 @@
       "title": "Full Stack Intern",
       "company": "Emdata Networks Private Limited, Bangalore",
       "description": "Engaged in full-stack web application development using Python/Django, React, HTML5, CSS3, Bootstrap, and JavaScript. Built RESTful APIs, CRUD workflows, authentication, authorization, input validation, frontend/backend integration, endpoint validation, relational database design, and SQL query optimizations with Django MVT and clean code practices.",
-      "stack": ["Python", "Django", "React", "HTML5", "CSS3", "Bootstrap", "JavaScript", "REST APIs", "SQL"]
+      "stack": [
+        "Python",
+        "Django",
+        "React",
+        "HTML5",
+        "CSS3",
+        "Bootstrap",
+        "JavaScript",
+        "REST APIs",
+        "SQL"
+      ]
     },
     {
       "id": "02",
@@ -140,7 +183,15 @@
       "title": "AI & Cloud Computing Intern (Virtual)",
       "company": "SuprMentr",
       "description": "Developed a Flask password authentication system with session management and bcrypt password hashing. Built a Smart Document Analyzer utilizing third-party APIs, RAG, and semantic search workflows with debugging, testing, and Git/GitHub version control.",
-      "stack": ["Python", "Flask", "bcrypt", "RAG", "Semantic Search", "Git", "GitHub"]
+      "stack": [
+        "Python",
+        "Flask",
+        "bcrypt",
+        "RAG",
+        "Semantic Search",
+        "Git",
+        "GitHub"
+      ]
     }
   ],
   "education": {

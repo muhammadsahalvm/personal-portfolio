@@ -55,6 +55,7 @@ body {
   --breakpoint-3xl: 1920px;
   --spacing-container: var(--container-spacing);
   --animate-scroll: scroll 60s linear infinite;
+  --animate-mobile-strip: mobile-strip 28s linear infinite;
 }
 
 @keyframes scroll {
@@ -64,6 +65,15 @@ body {
 
   to {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes mobile-strip {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
@@ -198,6 +208,11 @@ body {
   .section-snap {
     scroll-snap-align: start;
     scroll-snap-stop: always;
+  }
+
+  .animate-mobile-strip {
+    animation: mobile-strip 28s linear infinite;
+    will-change: transform;
   }
 
 }

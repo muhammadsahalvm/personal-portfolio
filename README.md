@@ -29,8 +29,8 @@ A responsive personal portfolio website for **Muhammad Sahal**, a full-stack dev
 ### Installation
 
 ```bash
-git clone https://github.com/muhammadsahalvm/personal-portfolio
-cd personal-portfolio
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+cd YOUR-REPOSITORY
 npm install
 npm run dev
 ```
