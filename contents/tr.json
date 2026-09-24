@@ -1,0 +1,25 @@
+{
+  "about": {
+    "intro": "I'm a *Full Stack Developer* building **responsive, user-centric web applications**.",
+    "description": "I work across React.js, JavaScript, Python, Django, Flask, REST APIs, and database-driven systems, with a focus on clear architecture and reliable interfaces.",
+    "full": "Hi, I'm **Muhammad Sahal**, a Full Stack Developer based in Bangalore, India. I build responsive web applications with *React.js*, *JavaScript*, *Python*, *Django*, and *Flask*, connecting thoughtful interfaces to REST APIs and relational or document databases.\n\nMy experience includes building authentication systems, CRUD workflows, role-based applications, database-backed features, and a Smart Document Analyzer using *Retrieval-Augmented Generation (RAG)* and semantic search. I care about maintainable code, responsive design, and understanding the problem behind the product.\n\nI'm pursuing a B.E. in Information Science and Engineering at Yenepoya Institute of Technology, affiliated to VTU."
+  },
+  "manifesto": ["RESPONSIVE BY DEFAULT", "CLEAN CODE, REAL SYSTEMS", "FULL STACK, FULL OWNERSHIP", "BUILD WITH PURPOSE", "USER-FIRST ENGINEERING", "ALWAYS LEARNING"],
+  "projects": [
+    { "id": "1", "title": "Online Grocery E-Commerce Platform", "category": "Full Stack E-Commerce", "year": "2026", "description": "A full-stack e-commerce application with a Django backend, MySQL database, and JavaScript-driven frontend. The platform covers authentication, product management, cart, wishlist, checkout, and an admin dashboard.", "highlights": ["Designed relational database models and implemented CRUD operations with session-based authentication.", "Built product management, order tracking, analytics, and report-generation workflows for the admin dashboard.", "Connected responsive frontend interfaces with Django backend services."], "stack": ["Python", "Django", "MySQL", "HTML5", "Tailwind CSS", "JavaScript"] },
+    { "id": "2", "title": "Salon Appointment Booking Platform", "category": "Web Application", "year": "2026", "description": "A responsive appointment booking platform with scheduling, booking, and admin management features, integrating frontend components with backend services and MongoDB for data persistence.", "highlights": ["Developed responsive booking and scheduling interfaces.", "Integrated frontend components with backend services.", "Used MongoDB for application data persistence."], "stack": ["React.js", "JavaScript", "MongoDB"] },
+    { "id": "3", "title": "AI-Powered Career Companion", "category": "AI / Web Application", "year": "2025", "description": "A career guidance application with responsive interfaces for resume analysis, job matching, and career recommendation workflows using HTML, CSS, JavaScript, and Flask integration.", "highlights": ["Developed responsive frontend interfaces for career workflows.", "Integrated Flask services for resume analysis, job matching, and career recommendations."], "stack": ["Python", "Flask", "Machine Learning", "HTML", "CSS", "JavaScript"] },
+    { "id": "4", "title": "Food Waste Management E-Commerce Platform", "category": "Web Application", "year": "2024", "description": "An e-commerce platform enabling restaurants to sell surplus food online through responsive interfaces and database-driven functionality.", "highlights": ["Developed responsive interfaces for surplus-food listings and online purchases.", "Integrated database-driven functionality using MySQL."], "stack": ["HTML", "CSS", "JavaScript", "MySQL"] }
+  ],
+  "roadmap": [
+    { "id": "01", "year": "May 2026 - Present", "title": "Full Stack Intern", "company": "Emdata Networks Private Limited, Bangalore", "description": "Developing responsive web applications with Python, Django, React, HTML, CSS3, Bootstrap, and JavaScript. Building RESTful APIs, CRUD workflows, authentication and authorization, relational databases, and Django MVT features.", "stack": ["Python", "Django", "React", "REST APIs", "SQL"] },
+    { "id": "02", "year": "Jan 2026 - Apr 2026", "title": "AI & Cloud Computing Intern (Virtual)", "company": "SuprMentr", "description": "Developed a Flask password authentication system with session management and bcrypt hashing, and built a Smart Document Analyzer using RAG, semantic search, and document question-answering workflows.", "stack": ["Python", "Flask", "RAG", "Semantic Search"] }
+  ],
+  "education": { "degree": "B.E. in Information Science and Engineering", "period": "2022 - 2026", "institution": "Yenepoya Institute of Technology", "location": "Mangalore, Karnataka", "affiliation": "Affiliated to VTU" },
+  "certifications": [
+    { "name": "Microsoft Certified: Azure Fundamentals", "issuer": "Microsoft", "date": "Jan 2026" },
+    { "name": "Building LLM Applications with Prompt Engineering", "issuer": "NVIDIA", "date": "Aug 2025" },
+    { "name": "Tata Group - Data Visualisation: Empowering Business with Effective Insights (Job Simulation)", "issuer": "Forage", "date": "Apr 2025" },
+    { "name": "Rapid Development for AI Services", "issuer": "Eitran", "date": "Dec 2024" }
+  ]
+}

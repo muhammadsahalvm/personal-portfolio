@@ -1,0 +1,175 @@
+{
+  "about": {
+    "intro": "I build responsive, secure and scalable web applications across frontend, backend and database layers.",
+    "description": "Full Stack Developer with hands-on experience building scalable web applications using React.js, JavaScript, HTML5, CSS3, Python/Django, Flask and RESTful APIs. Focused on clear backend architecture, input validation, database design, and clean maintainable code.",
+    "full": "Hi, I'm **Muhammad Sahal**, a Full Stack Developer based in Bangalore, India.\n\nI specialize in building scalable, secure, and responsive web applications across the entire stack. My experience spans frontend user interfaces with React.js, JavaScript, HTML5, CSS3, and Bootstrap, as well as robust backend services using Python/Django, Flask, and RESTful APIs with MySQL, SQLite, and MongoDB databases.\n\nI have designed role-based applications, implemented secure authentication and authorization systems (session-based and bcrypt hashing), engineered CSRF protections, and built AI-enabled services using Retrieval-Augmented Generation (RAG), semantic search, and prompt engineering.\n\nI am pursuing a B.E. in Information Science and Engineering at Yenepoya Institute of Technology (affiliated to VTU), graduating in 2026."
+  },
+  "manifesto": [
+    "RESPONSIVE BY DEFAULT",
+    "SECURE & SCALABLE",
+    "ROLE-BASED ARCHITECTURE",
+    "CLEAN CODE & SDLC",
+    "FULL STACK OWNERSHIP",
+    "PRODUCTION MINDSET"
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "SalamMart",
+      "category": "Full Stack E-Commerce",
+      "year": "2026",
+      "status": "In Development",
+      "description": "Full-stack grocery e-commerce platform with Customer, Staff and Owner/Admin modules.",
+      "highlights": [
+        "Role-based authentication and authorization with CSRF protection and form validation.",
+        "Product search, filtering, wishlist, cart, pincode delivery verification, and checkout.",
+        "Complete order lifecycle management with automatic stock restoration after order cancellation.",
+        "Owner/Admin and Staff dashboards for catalog, order, user role, and inventory management.",
+        "Responsive customer interface built with Django MVT and a reusable CSS component system."
+      ],
+      "image": "/projects/salam-mart.png",
+      "demo": "",
+      "repo": "",
+      "stack": ["Python", "Django", "SQLite", "HTML5", "CSS3", "JavaScript"],
+      "caseStudy": {
+        "problem": "Online grocery purchasing and management requires distinct user role permissions, secure transaction workflows, and reliable stock lifecycle management.",
+        "solution": "A role-based full-stack grocery application built using Django, featuring Customer, Staff, and Owner/Admin control panels.",
+        "architectureDiagram": {
+          "client": "Customer / Staff / Admin Web Interface",
+          "frontend": "HTML5 / CSS3 / JavaScript (Reusable CSS Component System)",
+          "backend": "Python / Django (MVT Pattern & REST Services)",
+          "orm": "Django ORM (Models & Query Optimization)",
+          "database": "SQLite Database",
+          "roles": [
+            "Customer Module: Catalog Browsing, Search, Wishlist, Cart, Pincode Delivery Check, Checkout, Order Tracking",
+            "Staff Dashboard: Catalog Maintenance & Order Fulfillment Operations",
+            "Owner/Admin Dashboard: User Management, Inventory Control & Automatic Stock Restoration"
+          ]
+        }
+      }
+    },
+    {
+      "id": "2",
+      "title": "AI Career Companion",
+      "category": "AI / Web Application",
+      "year": "2025",
+      "description": "AI-powered career companion focused on improving the job-search and career preparation workflow.",
+      "highlights": [
+        "Resume parsing and automated skill-gap analysis.",
+        "Job-role matching algorithm based on technical candidate profiles.",
+        "AI-assisted resume generation and mock interview assistance."
+      ],
+      "image": "/projects/career-companion.png",
+      "demo": "",
+      "repo": "",
+      "stack": ["Python", "Machine Learning", "NLP", "RAG", "Generative AI"]
+    },
+    {
+      "id": "3",
+      "title": "Salon Appointment Booking Platform",
+      "category": "Web Application",
+      "year": "2026",
+      "description": "Responsive appointment booking platform with scheduling and administrative management.",
+      "highlights": [
+        "Responsive booking and scheduling customer interfaces.",
+        "Integrated frontend components with backend scheduling services.",
+        "Used MongoDB for application data persistence."
+      ],
+      "image": "/projects/saloon-img.png",
+      "demo": "",
+      "repo": "",
+      "stack": ["React.js", "JavaScript", "MongoDB"]
+    },
+    {
+      "id": "4",
+      "title": "Food Waste Management E-Commerce Platform",
+      "category": "Full Stack E-Commerce",
+      "year": "2024",
+      "description": "E-commerce platform designed to allow restaurants to sell surplus food online.",
+      "highlights": [
+        "Built restaurant and customer workflows for surplus-food listings and online orders.",
+        "Implemented authentication, inventory updates, and order management with MySQL."
+      ],
+      "image": "/projects/food-waste-img.png",
+      "demo": "",
+      "repo": "https://github.com/muhammadsahalvm/leftover-food-selling-website-",
+      "stack": ["HTML", "CSS", "JavaScript", "MySQL"]
+    }
+  ],
+  "otherProjects": [
+    {
+      "id": "other-1",
+      "title": "Smart Document Analyzer",
+      "category": "AI / RAG Application",
+      "year": "2026",
+      "description": "A local application that extracts text from PDFs, retrieves relevant passages, and answers questions using RAG and semantic search.",
+      "highlights": [
+        "Built grounded PDF question-answering with Retrieval-Augmented Generation (RAG).",
+        "Added document validation, semantic search, and local model inference."
+      ],
+      "image": "/projects/doc-analyzer.png",
+      "repo": "https://github.com/muhammadsahalvm/smart-document-analyzer-clean",
+      "stack": ["Python", "RAG", "Semantic Search", "Third-Party APIs"]
+    },
+    {
+      "id": "other-2",
+      "title": "Password Authentication System",
+      "category": "Full Stack Web Application",
+      "year": "2025",
+      "description": "A Flask and bcrypt-powered authentication system with registration, secure password hashing, login, sessions, and a personalized dashboard.",
+      "highlights": [
+        "Implemented secure password hashing with bcrypt and session management.",
+        "Built responsive login, registration, and dashboard views."
+      ],
+      "repo": "https://github.com/muhammadsahalvm/password-authentication-system",
+      "stack": ["Python", "Flask", "bcrypt", "HTML", "CSS"]
+    }
+  ],
+  "roadmap": [
+    {
+      "id": "01",
+      "year": "06/2026 – 09/2026",
+      "title": "Full Stack Intern",
+      "company": "Emdata Networks Private Limited, Bangalore",
+      "description": "Engaged in full-stack web application development using Python/Django, React, HTML5, CSS3, Bootstrap, and JavaScript. Built RESTful APIs, CRUD workflows, authentication, authorization, input validation, frontend/backend integration, endpoint validation, relational database design, and SQL query optimizations with Django MVT and clean code practices.",
+      "stack": ["Python", "Django", "React", "HTML5", "CSS3", "Bootstrap", "JavaScript", "REST APIs", "SQL"]
+    },
+    {
+      "id": "02",
+      "year": "01/2026 – 04/2026",
+      "title": "AI & Cloud Computing Intern (Virtual)",
+      "company": "SuprMentr",
+      "description": "Developed a Flask password authentication system with session management and bcrypt password hashing. Built a Smart Document Analyzer utilizing third-party APIs, RAG, and semantic search workflows with debugging, testing, and Git/GitHub version control.",
+      "stack": ["Python", "Flask", "bcrypt", "RAG", "Semantic Search", "Git", "GitHub"]
+    }
+  ],
+  "education": {
+    "degree": "B.E. Information Science and Engineering",
+    "period": "2022 – 2026",
+    "institution": "Yenepoya Institute of Technology",
+    "location": "Mangalore, Karnataka",
+    "affiliation": "Affiliated to VTU"
+  },
+  "certifications": [
+    {
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "date": "January 2026"
+    },
+    {
+      "name": "Building LLM Applications with Prompt Engineering",
+      "issuer": "NVIDIA",
+      "date": "August 2025"
+    },
+    {
+      "name": "Data Visualisation: Empowering Business with Effective Insights",
+      "issuer": "Tata Group / Forage",
+      "date": "April 2025"
+    },
+    {
+      "name": "Rapid Development for AI Services",
+      "issuer": "Eitran",
+      "date": "December 2024"
+    }
+  ]
+}

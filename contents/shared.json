@@ -1,0 +1,82 @@
+{
+    "contact": {
+        "location": "Bangalore, India",
+        "email": "sahal.muhammadvm@gmail.com",
+        "phone": "+91-8714196266"
+    },
+    "social": [
+        {
+            "label": "GitHub",
+            "href": "https://github.com/muhammadsahalvm"
+        },
+        {
+            "label": "LinkedIn",
+            "href": "https://linkedin.com/in/muhammad-sahalvm"
+        }
+    ],
+    "stack": {
+        "programmingLanguages": [
+            { "name": "Python", "icon": "/stack/python.svg", "featured": true },
+            { "name": "JavaScript", "icon": "/stack/javascript.svg", "featured": true },
+            { "name": "SQL", "icon": "/stack/mysql.svg", "featured": true },
+            { "name": "C++", "icon": "/stack/python.svg" },
+            { "name": "C", "icon": "/stack/python.svg" },
+            { "name": "Java", "icon": "/stack/python.svg" }
+        ],
+        "frontend": [
+            { "name": "React.js", "icon": "/stack/react.svg", "featured": true },
+            { "name": "HTML5", "icon": "/stack/html5.svg", "featured": true },
+            { "name": "CSS3", "icon": "/stack/css3.svg", "featured": true },
+            { "name": "JavaScript ES6+", "icon": "/stack/javascript.svg" },
+            { "name": "Bootstrap", "icon": "/stack/bootstrap.svg" },
+            { "name": "Responsive Web Design", "icon": "/stack/html5.svg" },
+            { "name": "Reusable Components", "icon": "/stack/react.svg" }
+        ],
+        "backend": [
+            { "name": "Python/Django", "icon": "/stack/django.svg", "featured": true },
+            { "name": "Flask", "icon": "/stack/flask.svg", "featured": true },
+            { "name": "RESTful API Development", "icon": "/stack/python.svg", "featured": true },
+            { "name": "Third-Party API Integration", "icon": "/stack/python.svg" },
+            { "name": "CRUD Operations", "icon": "/stack/python.svg" },
+            { "name": "Authentication", "icon": "/stack/python.svg" },
+            { "name": "Authorization", "icon": "/stack/python.svg" },
+            { "name": "Input Validation", "icon": "/stack/python.svg" },
+            { "name": "Security Best Practices", "icon": "/stack/python.svg" },
+            { "name": "MVC/MVT Architecture", "icon": "/stack/django.svg" }
+        ],
+        "database": [
+            { "name": "MySQL", "icon": "/stack/mysql.svg", "featured": true },
+            { "name": "SQLite", "icon": "/stack/mysql.svg", "featured": true },
+            { "name": "MongoDB", "icon": "/stack/mongodb.svg", "featured": true },
+            { "name": "Database Design", "icon": "/stack/mysql.svg" },
+            { "name": "Query Optimization", "icon": "/stack/mysql.svg" }
+        ],
+        "toolsCloud": [
+            { "name": "Git", "icon": "/stack/git.svg", "featured": true },
+            { "name": "GitHub", "icon": "/stack/git.svg", "featured": true },
+            { "name": "VS Code", "icon": "/stack/git.svg" },
+            { "name": "Linux", "icon": "/stack/git.svg" },
+            { "name": "AWS EC2", "icon": "/stack/git.svg" },
+            { "name": "AWS S3", "icon": "/stack/git.svg" },
+            { "name": "Docker", "icon": "/stack/git.svg" },
+            { "name": "Containerization", "icon": "/stack/git.svg" },
+            { "name": "CI/CD", "icon": "/stack/git.svg" }
+        ],
+        "coreConcepts": [
+            { "name": "OOP", "icon": "/stack/python.svg" },
+            { "name": "Data Structures & Algorithms", "icon": "/stack/python.svg" },
+            { "name": "Debugging", "icon": "/stack/python.svg" },
+            { "name": "Performance Optimization", "icon": "/stack/python.svg" },
+            { "name": "Scalability", "icon": "/stack/python.svg" },
+            { "name": "SDLC", "icon": "/stack/git.svg" },
+            { "name": "Coding Best Practices", "icon": "/stack/python.svg" }
+        ],
+        "aiEmergingTech": [
+            { "name": "Machine Learning", "icon": "/stack/python.svg", "featured": true },
+            { "name": "Generative AI", "icon": "/stack/python.svg", "featured": true },
+            { "name": "RAG", "icon": "/stack/python.svg", "featured": true },
+            { "name": "Prompt Engineering", "icon": "/stack/python.svg" },
+            { "name": "OpenCV", "icon": "/stack/opencv.svg" }
+        ]
+    }
+}
