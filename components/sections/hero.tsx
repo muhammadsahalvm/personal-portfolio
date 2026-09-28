@@ -2,8 +2,9 @@
 
 import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/providers/language-provider";
+import { useLenis } from "@/providers/smooth-scroll-provider";
 import { ArrowRight, Download, Github, Linkedin, Mail, MapPin, Sparkles } from "lucide-react";
 import { ContactModal } from "@/components/modals/contact-modal";
 
@@ -16,7 +17,7 @@ const SLIDER_IMAGES = [
     "/hero-slider/pic5.jpeg",
 ] as const;
 
-// Duplicate for seamless infinite loop
+// Duplicate for seamless infinite horizontal loop
 const MOBILE_STRIP = [...SLIDER_IMAGES, ...SLIDER_IMAGES];
 
 const TRACK_1 = [
@@ -41,45 +42,43 @@ const COL_1_IMAGES = [...TRACK_1, ...TRACK_1];
 const COL_2_IMAGES = [...TRACK_2, ...TRACK_2];
 
 export default function Hero() {
-    const { content, dict } = useLanguage();
+    const { dict } = useLanguage();
+    const lenis = useLenis();
     const containerRef = useRef<HTMLDivElement>(null);
     const [contactOpen, setContactOpen] = useState(false);
 
-    const { scrollY } = useScroll();
-    const opacity = useTransform(scrollY, [0, 600], [1, 0]);
-    const scale = useTransform(scrollY, [0, 600], [1, 0.98]);
-    const y = useTransform(scrollY, [0, 600], [0, -60]);
-
     const scrollToProjects = useCallback(() => {
-        const projectsSection = document.getElementById("projects");
-        if (projectsSection) {
-            projectsSection.scrollIntoView({ behavior: "smooth" });
+        if (lenis) {
+            lenis.scrollTo("#projects", { offset: -60, duration: 1.1 });
+        } else {
+            const projectsSection = document.getElementById("projects");
+            if (projectsSection) {
+                projectsSection.scrollIntoView({ behavior: "smooth" });
+            }
         }
-    }, []);
+    }, [lenis]);
 
     return (
         <section
             ref={containerRef}
-            className="section-snap relative min-h-screen w-full flex flex-col justify-between bg-background px-container md:px-16 pt-28 pb-12 sm:pt-32 sm:pb-16 overflow-hidden"
+            className="relative min-h-screen w-full flex flex-col justify-between bg-background px-container md:px-16 pt-28 pb-12 sm:pt-32 sm:pb-16 overflow-hidden"
             id="home"
         >
             {/* Subtle background technical grid */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:36px_36px] pointer-events-none -z-10" />
 
-            {/* Desktop Dual Column Image Slider */}
-            <motion.div
-                style={{ opacity }}
-                className="hidden lg:flex absolute top-0 right-8 lg:right-16 xl:right-28 bottom-0 h-full w-72 lg:w-96 gap-3 sm:gap-4 px-2 overflow-hidden z-5 pointer-events-none select-none opacity-[0.22] dark:opacity-[0.28] mix-blend-luminosity"
-            >
+            {/* Desktop Dual Column Vertical Image Slider — CSS-only animation, no JS scroll events */}
+            <div className="hidden lg:flex absolute top-0 right-8 lg:right-16 xl:right-28 bottom-0 h-full w-72 lg:w-96 gap-3 sm:gap-4 px-2 overflow-hidden z-5 pointer-events-none select-none opacity-[0.22] dark:opacity-[0.28] mix-blend-luminosity">
                 <div className="flex-1 h-full overflow-hidden relative">
                     <motion.div
                         animate={{ y: ["0%", "-50%"] }}
                         transition={{
                             ease: "linear",
-                            duration: 45,
-                            repeat: Infinity
+                            duration: 50,
+                            repeat: Infinity,
                         }}
                         className="flex flex-col gap-3 sm:gap-4 pt-4"
+                        style={{ willChange: "transform" }}
                     >
                         {COL_1_IMAGES.map((src, idx) => (
                             <div key={idx} className="w-full aspect-3/4 relative overflow-hidden rounded-3xl border border-border/20 shadow-sm">
@@ -89,7 +88,7 @@ export default function Hero() {
                                     fill
                                     sizes="15vw"
                                     priority={idx === 0}
-                                    className="object-cover object-center grayscale contrast-[1.08] brightness-[0.85]"
+                                    className="object-cover object-center grayscale"
                                 />
                             </div>
                         ))}
@@ -101,10 +100,11 @@ export default function Hero() {
                         animate={{ y: ["-50%", "0%"] }}
                         transition={{
                             ease: "linear",
-                            duration: 45,
-                            repeat: Infinity
+                            duration: 50,
+                            repeat: Infinity,
                         }}
                         className="flex flex-col gap-3 sm:gap-4 pt-4"
+                        style={{ willChange: "transform" }}
                     >
                         {COL_2_IMAGES.map((src, idx) => (
                             <div key={idx} className="w-full aspect-3/4 relative overflow-hidden rounded-3xl border border-border/20 shadow-sm">
@@ -114,7 +114,7 @@ export default function Hero() {
                                     fill
                                     sizes="15vw"
                                     priority={idx === 0}
-                                    className="object-cover object-center grayscale contrast-[1.08] brightness-[0.85]"
+                                    className="object-cover object-center grayscale"
                                 />
                             </div>
                         ))}
@@ -123,13 +123,11 @@ export default function Hero() {
 
                 <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-background pointer-events-none z-10" />
                 <div className="absolute inset-0 bg-linear-to-r from-background via-transparent to-transparent pointer-events-none z-10" />
-            </motion.div>
+            </div>
 
-            {/* Main Content */}
-            <motion.div
-                style={{ opacity, scale, y }}
-                className="relative z-20 flex-1 flex flex-col justify-center w-full max-w-7xl mx-auto my-auto gap-8 sm:gap-10"
-            >
+            {/* Main Content — no scroll-driven motion transforms */}
+            <div className="relative z-20 flex-1 flex flex-col justify-center w-full max-w-7xl mx-auto my-auto gap-8 sm:gap-10">
+
                 {/* Status Bar */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-b border-border/40 pb-4 sm:pb-6">
                     <div className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-[11px] font-mono tracking-wider text-emerald-600 dark:text-emerald-400 uppercase w-fit">
@@ -181,7 +179,7 @@ export default function Hero() {
                         <a
                             href="/Resume.pdf"
                             download
-                            className="group relative flex h-12 sm:h-14 cursor-pointer items-center justify-center rounded-full border border-border/80 bg-background/60 backdrop-blur-md px-6 sm:px-8 text-foreground transition-all duration-300 hover:border-foreground/50 hover:bg-secondary/40"
+                            className="group relative flex h-12 sm:h-14 cursor-pointer items-center justify-center rounded-full border border-border/80 bg-background/60 px-6 sm:px-8 text-foreground transition-all duration-300 hover:border-foreground/50 hover:bg-secondary/40"
                         >
                             <span className="relative z-10 flex items-center gap-2.5 text-xs sm:text-sm font-bold tracking-[0.15em] uppercase">
                                 <Download className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
@@ -219,8 +217,8 @@ export default function Hero() {
                         </button>
                     </div>
 
-                    {/* Mobile Horizontal Photo Strip — visible only on mobile/tablet */}
-                    <div className="lg:hidden w-full overflow-hidden mt-2 -mx-0">
+                    {/* Mobile Horizontal Photo Strip — CSS keyframe, no scroll JS */}
+                    <div className="lg:hidden w-full overflow-hidden mt-2">
                         <div
                             className="flex gap-3 animate-mobile-strip"
                             style={{ width: "max-content" }}
@@ -236,7 +234,7 @@ export default function Hero() {
                                         fill
                                         sizes="80px"
                                         priority={idx < 3}
-                                        className="object-cover object-center grayscale contrast-[1.05] brightness-[0.9]"
+                                        className="object-cover object-center grayscale"
                                     />
                                 </div>
                             ))}
@@ -256,7 +254,7 @@ export default function Hero() {
                         Scroll Down
                     </button>
                 </div>
-            </motion.div>
+            </div>
 
             <ContactModal open={contactOpen} onOpenChange={setContactOpen} />
         </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Check, Copy, Mail, MapPin, Phone, MessageSquare, Send, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Mail, MapPin, Phone, MessageSquare, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/providers/language-provider";
 import { BlurReveal } from "@/components/effects/blur-reveal";
 import { sanitizePhone } from "@/lib/utils";
@@ -13,7 +13,6 @@ export default function Contact() {
     const [copied, setCopied] = useState<string | null>(null);
     const [modalOpen, setModalOpen] = useState(false);
 
-    // Form states for Direct WhatsApp integration
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -78,9 +77,9 @@ ${formData.message || "I would like to discuss an engineering opportunity with y
                     </BlurReveal>
                 </div>
 
-                {/* Direct WhatsApp Contact Form Section */}
+                {/* WhatsApp Contact Form — no backdrop-blur */}
                 <BlurReveal>
-                    <div className="p-6 sm:p-8 rounded-3xl border border-border/50 bg-card/40 backdrop-blur-md max-w-4xl mx-auto space-y-6">
+                    <div className="p-6 sm:p-8 rounded-3xl border border-border/50 bg-card max-w-4xl mx-auto space-y-6">
                         <div className="flex items-center justify-between gap-4 border-b border-border/30 pb-4">
                             <div className="flex items-center gap-2.5 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-bold uppercase tracking-widest">
                                 <MessageCircle size={18} />
@@ -149,9 +148,9 @@ ${formData.message || "I would like to discuss an engineering opportunity with y
                     </div>
                 </BlurReveal>
 
-                {/* Direct Action Interactive Button Rows Matching Image 1 */}
+                {/* Contact Info Rows */}
                 <div className="flex flex-col w-full max-w-4xl mx-auto border-t border-b border-border/30 divide-y divide-border/30">
-                    
+
                     {/* Row 1: Direct Email */}
                     <BlurReveal>
                         <div className="py-6 sm:py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -168,7 +167,7 @@ ${formData.message || "I would like to discuss an engineering opportunity with y
                                     type="button"
                                     aria-label="Copy email address"
                                     onClick={() => void copyValue(content.contact.email, "email")}
-                                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/60 bg-background text-xs font-mono font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-300 shadow-xs"
+                                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/60 bg-background text-xs font-mono font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
                                 >
                                     {copied === "email" ? (
                                         <>
@@ -186,7 +185,7 @@ ${formData.message || "I would like to discuss an engineering opportunity with y
                                 <a
                                     href={`mailto:${content.contact.email}`}
                                     aria-label="Send Email"
-                                    className="w-9 h-9 rounded-full border border-border/60 bg-background flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-all duration-300 shadow-xs"
+                                    className="w-9 h-9 rounded-full border border-border/60 bg-background flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
                                 >
                                     <ArrowUpRight size={16} />
                                 </a>
@@ -210,7 +209,7 @@ ${formData.message || "I would like to discuss an engineering opportunity with y
                                     type="button"
                                     aria-label="Copy phone number"
                                     onClick={() => void copyValue(content.contact.phone, "phone")}
-                                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/60 bg-background text-xs font-mono font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-300 shadow-xs"
+                                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/60 bg-background text-xs font-mono font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
                                 >
                                     {copied === "phone" ? (
                                         <>
@@ -228,7 +227,7 @@ ${formData.message || "I would like to discuss an engineering opportunity with y
                                 <a
                                     href={`tel:${sanitizePhone(content.contact.phone)}`}
                                     aria-label="Call Phone Number"
-                                    className="w-9 h-9 rounded-full border border-border/60 bg-background flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-all duration-300 shadow-xs"
+                                    className="w-9 h-9 rounded-full border border-border/60 bg-background flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
                                 >
                                     <ArrowUpRight size={16} />
                                 </a>
@@ -238,10 +237,10 @@ ${formData.message || "I would like to discuss an engineering opportunity with y
 
                 </div>
 
-                {/* Additional Actions & Status */}
+                {/* Additional Actions */}
                 <div className="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-between gap-4 pt-4">
                     <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-muted-foreground">
-                        <span className="inline-flex items-center gap-2 border border-border/40 rounded-full px-4 py-2 bg-card/40">
+                        <span className="inline-flex items-center gap-2 border border-border/40 rounded-full px-4 py-2 bg-card">
                             <MapPin className="h-3.5 w-3.5 text-primary" />
                             {content.contact.location} (UTC+5:30)
                         </span>
@@ -250,14 +249,14 @@ ${formData.message || "I would like to discuss an engineering opportunity with y
                     <button
                         type="button"
                         onClick={() => setModalOpen(true)}
-                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-primary/50 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-xs"
+                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-primary/50 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                     >
                         <MessageSquare size={14} />
                         Open Contact Modal
                     </button>
                 </div>
 
-                {/* Footer Section */}
+                {/* Footer */}
                 <div className="w-full flex flex-col md:flex-row items-center justify-between py-8 border-t border-border/40 gap-6">
                     <div className="text-xs font-mono tracking-widest text-muted-foreground uppercase flex items-center gap-3">
                         <span>© 2026</span>

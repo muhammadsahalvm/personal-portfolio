@@ -61,14 +61,14 @@ export default function About() {
                     </div>
                 </div>
 
-                {/* 4 Pillar Boxes Aligned in a Single Horizontal Row matching Image 2 */}
+                {/* 4 Pillar Boxes — no backdrop-blur */}
                 <div className="pt-4 border-t border-border/40">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                         {corePillars.map((pillar) => {
                             const IconComp = pillar.icon;
                             return (
                                 <BlurReveal key={pillar.title}>
-                                    <div className="h-full p-6 rounded-3xl border border-border/50 bg-card/40 backdrop-blur-md flex flex-col justify-between gap-6 hover:border-foreground/40 hover:shadow-lg transition-all duration-300">
+                                    <div className="h-full p-6 rounded-3xl border border-border/50 bg-card flex flex-col justify-between gap-6 hover:border-foreground/40 hover:shadow-md transition-all duration-300">
                                         <div className="p-3 rounded-2xl bg-secondary/80 text-foreground w-fit shadow-xs">
                                             <IconComp size={22} />
                                         </div>

@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 
 const LenisContext = createContext<Lenis | null>(null);
 
@@ -15,16 +16,19 @@ export default function SmoothScroll({
 
   useEffect(() => {
     const lenisInstance = new Lenis({
-      duration: 1.5,
+      duration: 0.95,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
+      syncTouch: false,
+      wheelMultiplier: 1,
+      touchMultiplier: 1,
+      infinite: false,
+      autoResize: true,
     });
 
-    const frameId = requestAnimationFrame(() => {
-      setLenis(lenisInstance);
-    });
+    setLenis(lenisInstance);
 
     let rafId: number;
 
@@ -35,9 +39,15 @@ export default function SmoothScroll({
 
     rafId = requestAnimationFrame(raf);
 
+    const handleResize = () => {
+      lenisInstance.resize();
+    };
+
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      cancelAnimationFrame(frameId);
       cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", handleResize);
       lenisInstance.destroy();
       setLenis(null);
     };

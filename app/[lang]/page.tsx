@@ -17,35 +17,23 @@ export default function Home() {
         <Hero />
 
         <div className="relative z-10 bg-background border-t border-border">
-
-          <section id="about" className="section-snap">
-            <About />
-          </section>
+          <About />
 
           <ManifestoFlow />
 
-          <section id="stack" className="section-snap">
-            <Stack />
-          </section>
+          <Stack />
 
           <ManifestoFlow reverse />
 
-          <section id="projects" className="section-snap">
-            <Projects />
-          </section>
+          <Projects />
 
           <ManifestoFlow />
 
-          <section id="roadmap" className="section-snap">
-            <Roadmap />
-          </section>
+          <Roadmap />
 
           <ManifestoFlow reverse />
 
-          <section id="contact" className="section-snap">
-            <Contact />
-          </section>
-
+          <Contact />
         </div>
 
       </main >
