@@ -175,11 +175,10 @@ body {
   body {
     @apply w-full max-w-[100vw];
     overflow-x: clip;
-    overscroll-behavior-y: none;
   }
 
   html {
-    scroll-snap-type: y proximity;
+    scroll-behavior: auto !important;
   }
 
   body {
@@ -203,11 +202,6 @@ body {
 
   .container-void {
     @apply py-16 md:py-24 lg:py-32 xl:py-40 2xl:py-36;
-  }
-
-  .section-snap {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 
   .animate-mobile-strip {

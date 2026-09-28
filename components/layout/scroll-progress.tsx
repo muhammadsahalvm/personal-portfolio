@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ScrollProgressProps {
@@ -10,19 +10,14 @@ interface ScrollProgressProps {
 export default function ScrollProgress({ className }: ScrollProgressProps) {
     const { scrollYProgress } = useScroll();
 
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-    });
-
+    // Direct scaleX from scrollYProgress — no spring overhead
     return (
         <motion.div
             className={cn(
-                "fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-99999",
+                "fixed top-0 left-0 right-0 h-0.5 bg-primary origin-left z-[99999]",
                 className
             )}
-            style={{ scaleX }}
+            style={{ scaleX: scrollYProgress }}
         />
     );
 }

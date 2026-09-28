@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { BlurReveal } from "@/components/effects/blur-reveal";
 import { useLanguage } from "@/providers/language-provider";
@@ -15,14 +15,11 @@ export default function Roadmap() {
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start center", "end center"]
+        offset: ["start center", "end center"],
     });
 
-    const scaleY = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-    });
+    // useTransform is cheaper than useSpring — no physics simulation on every tick
+    const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
     return (
         <section ref={containerRef} id="roadmap" className="relative py-24 lg:py-36 border-t border-border/40 overflow-hidden">
@@ -53,7 +50,7 @@ export default function Roadmap() {
 
                     <motion.div
                         style={{ scaleY, originY: 0 }}
-                        className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-primary shadow-[0_0_12px_rgba(var(--primary),0.6)] -translate-x-1/2 z-10"
+                        className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-primary -translate-x-1/2 z-10"
                     />
 
                     <div className="flex flex-col w-full gap-12 md:gap-20 relative z-20">
@@ -69,11 +66,11 @@ export default function Roadmap() {
 
                 {/* Education & Certifications Grid */}
                 <div className="mt-28 grid gap-8 lg:grid-cols-12">
-                    
+
                     {/* Education Card */}
                     <div className="lg:col-span-5">
                         <BlurReveal>
-                            <div className="h-full p-8 rounded-3xl border border-border/50 bg-card/40 backdrop-blur-md flex flex-col justify-between space-y-6">
+                            <div className="h-full p-8 rounded-3xl border border-border/50 bg-card flex flex-col justify-between space-y-6">
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-3 text-primary">
                                         <div className="p-3 rounded-2xl bg-secondary/80">
@@ -106,7 +103,7 @@ export default function Roadmap() {
                     {/* Certifications Card */}
                     <div className="lg:col-span-7">
                         <BlurReveal>
-                            <div className="h-full p-8 rounded-3xl border border-border/50 bg-card/40 backdrop-blur-md space-y-6">
+                            <div className="h-full p-8 rounded-3xl border border-border/50 bg-card space-y-6">
                                 <div className="flex items-center gap-3 text-primary">
                                     <div className="p-3 rounded-2xl bg-secondary/80">
                                         <Award size={22} />
@@ -145,7 +142,7 @@ const TimelineNode = ({ item, isEven }: { item: RoadmapItem, isEven: boolean }) 
             <div className="w-full md:w-[calc(50%-3rem)] pl-16 md:pl-0 relative group">
                 <BlurReveal>
                     <div className={cn(
-                        "relative p-6 sm:p-8 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-md transition-all duration-500 ease-out hover:border-foreground/40 hover:shadow-xl",
+                        "relative p-6 sm:p-8 rounded-3xl border border-border/50 bg-card transition-all duration-300 ease-out hover:border-foreground/40 hover:shadow-lg",
                         isEven ? "md:text-right" : "md:text-left"
                     )}>
 

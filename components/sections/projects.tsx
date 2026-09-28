@@ -1,9 +1,10 @@
 "use client";
 
-import { motion, useTransform, useScroll, useSpring } from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/providers/language-provider";
+import { useLenis } from "@/providers/smooth-scroll-provider";
 import { useMediaQuery, BREAKPOINTS } from "@/hooks/use-media-query";
 import { BlurReveal } from "@/components/effects/blur-reveal";
 import { ProjectModal } from "@/components/modals/project-modal";
@@ -12,6 +13,7 @@ import { ArrowUpRight, Cpu } from "lucide-react";
 
 export default function Projects() {
     const { content, dict } = useLanguage();
+    const lenis = useLenis();
 
     const isDesktop = useMediaQuery(BREAKPOINTS.xl);
 
@@ -22,31 +24,36 @@ export default function Projects() {
     const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    useEffect(() => {
+    const updateMeasurements = React.useCallback(() => {
         if (!isDesktop) {
-            const frame = requestAnimationFrame(() => {
-                setMeasurements({ scrollRange: 0, dynamicHeight: "auto" });
-            });
-            return () => cancelAnimationFrame(frame);
+            setMeasurements({ scrollRange: 0, dynamicHeight: "auto" });
+            lenis?.resize();
+            return;
         }
 
-        const updateMeasurements = () => {
-            if (horizontalContainerRef.current) {
-                const totalWidth = horizontalContainerRef.current.scrollWidth;
-                const viewportW = window.innerWidth;
-                const range = totalWidth - viewportW;
-                const safeRange = range > 0 ? range : 0;
+        if (horizontalContainerRef.current) {
+            const totalWidth = horizontalContainerRef.current.scrollWidth;
+            const viewportW = window.innerWidth;
+            const range = totalWidth - viewportW;
+            const safeRange = range > 0 ? range : 0;
 
-                setMeasurements({
-                    scrollRange: safeRange,
-                    dynamicHeight: `${safeRange + window.innerHeight}px`,
-                });
-            }
-        };
+            setMeasurements({
+                scrollRange: safeRange,
+                dynamicHeight: `${safeRange + window.innerHeight}px`,
+            });
+            
+            // Keep Lenis scroll limits synchronized with dynamic container heights
+            requestAnimationFrame(() => {
+                lenis?.resize();
+            });
+        }
+    }, [isDesktop, lenis]);
 
+    useEffect(() => {
         updateMeasurements();
 
-        const timeout = setTimeout(updateMeasurements, 100);
+        const timeout = setTimeout(updateMeasurements, 150);
+        const secondTimeout = setTimeout(updateMeasurements, 600);
         const resizeObserver = new ResizeObserver(() => {
             requestAnimationFrame(updateMeasurements);
         });
@@ -57,17 +64,24 @@ export default function Projects() {
 
         return () => {
             clearTimeout(timeout);
+            clearTimeout(secondTimeout);
             resizeObserver.disconnect();
         };
-    }, [isDesktop, content.projects]);
+    }, [updateMeasurements]);
+
+    useEffect(() => {
+        if (lenis) {
+            lenis.resize();
+        }
+    }, [measurements.dynamicHeight, lenis]);
 
     const { scrollYProgress } = useScroll({
         target: targetRef,
         offset: ["start start", "end end"],
     });
 
+    // Direct useTransform — snappy, lag-free and in sync with scroll
     const x = useTransform(scrollYProgress, [0, 1], [0, -measurements.scrollRange]);
-    const smoothX = useSpring(x, { stiffness: 400, damping: 60, restDelta: 0.5 });
 
     const handleOpenProject = (project: ProjectItem) => {
         setSelectedProject(project);
@@ -128,7 +142,7 @@ export default function Projects() {
                 ) : (
                     <motion.div
                         ref={horizontalContainerRef}
-                        style={{ x: smoothX }}
+                        style={{ x }}
                         className="flex px-container w-max items-center"
                     >
                         <div className="w-[60vw] xl:w-[40vw] shrink-0 flex flex-col justify-center pr-12">
@@ -172,13 +186,16 @@ export default function Projects() {
                                 project={project}
                                 isFirst={idx === 0}
                                 onClick={() => handleOpenProject(project)}
+                                onLoad={updateMeasurements}
                             />
                         ))}
 
-                        <div className="w-[30vw] h-[70vh] shrink-0 flex flex-col justify-center items-center">
-                            <h3 className="text-6xl font-black tracking-tighter text-border uppercase">
-                                {dict.projectsEndText || "End"}
-                            </h3>
+                        <div className="w-[18vw] shrink-0 flex flex-col justify-center items-center text-center px-6">
+                            <div className="h-10 w-px bg-border/60 mb-3" />
+                            <span className="text-xs font-mono tracking-widest text-muted-foreground uppercase">
+                                {dict.projectsEndText || "All Works"}
+                            </span>
+                            <span className="text-[10px] font-mono text-muted-foreground/60 mt-1">↓ Scroll to explore</span>
                         </div>
                     </motion.div>
                 )}
@@ -213,6 +230,7 @@ export default function Projects() {
                             key={project.id}
                             project={project}
                             onClick={() => handleOpenProject(project)}
+                            onLoad={updateMeasurements}
                         />
                     ))}
                 </div>
@@ -225,11 +243,13 @@ export default function Projects() {
 const ProjectCard = React.memo(function ProjectCard({
     project,
     isFirst = false,
-    onClick
+    onClick,
+    onLoad,
 }: {
     project: ProjectItem;
     isFirst?: boolean;
     onClick?: () => void;
+    onLoad?: () => void;
 }) {
     return (
         <BlurReveal>
@@ -239,7 +259,7 @@ const ProjectCard = React.memo(function ProjectCard({
                     isFirst ? "w-full xl:w-[50vw] xl:mx-8" : "w-full xl:w-[42vw] xl:mx-6"
                 }`}
             >
-                <div className="overflow-hidden rounded-3xl border border-border/50 bg-card/60 backdrop-blur-md transition-all duration-500 ease-out group-hover:border-foreground/40 group-hover:shadow-2xl">
+                <div className="overflow-hidden rounded-3xl border border-border/50 bg-card transition-all duration-300 ease-out group-hover:border-foreground/40 group-hover:shadow-xl">
                     <div className="relative aspect-16/10 overflow-hidden bg-muted">
                         {project.image && (
                             <Image
@@ -248,7 +268,8 @@ const ProjectCard = React.memo(function ProjectCard({
                                 fill
                                 sizes="(max-width: 1280px) 100vw, 50vw"
                                 loading="lazy"
-                                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                                onLoad={onLoad}
+                                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                             />
                         )}
                         <div className="absolute inset-0 bg-linear-to-t from-background via-background/20 to-transparent" />
@@ -256,7 +277,7 @@ const ProjectCard = React.memo(function ProjectCard({
                         {/* Status tag */}
                         {project.status && (
                             <div className="absolute top-4 left-4 z-10">
-                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 backdrop-blur-md">
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30">
                                     <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
                                     {project.status}
                                 </span>
@@ -265,7 +286,7 @@ const ProjectCard = React.memo(function ProjectCard({
 
                         {project.caseStudy && (
                             <div className="absolute top-4 right-4 z-10">
-                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase bg-primary/20 text-primary border border-primary/30 backdrop-blur-md">
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase bg-primary/20 text-primary border border-primary/30">
                                     <Cpu size={12} />
                                     Case Study
                                 </span>

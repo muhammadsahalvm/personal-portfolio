@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -11,7 +12,26 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function ThemeSwitcher() {
+  const [mounted, setMounted] = useState(false);
   const { setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <button
+        type="button"
+        aria-label="Toggle theme"
+        className="group relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-background/50 backdrop-blur-md text-foreground shadow-sm focus:outline-none"
+      >
+        <span className="relative z-10 flex items-center justify-center">
+          <Sun className="h-4 w-4 opacity-50" />
+        </span>
+      </button>
+    );
+  }
 
   return (
     <DropdownMenu modal={false}>
