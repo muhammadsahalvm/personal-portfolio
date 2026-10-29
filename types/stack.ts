@@ -5,12 +5,16 @@ export type StackItem = {
 };
 
 export type StackCategories = {
-    programmingLanguages: StackItem[];
+    languages?: StackItem[];
+    programmingLanguages?: StackItem[];
     frontend: StackItem[];
     backend: StackItem[];
     database: StackItem[];
-    toolsCloud: StackItem[];
+    tools?: StackItem[];
+    cloudCiCd?: StackItem[];
+    toolsCloud?: StackItem[];
     coreConcepts: StackItem[];
-    aiEmergingTech: StackItem[];
+    aiGenerativeAi?: StackItem[];
+    aiEmergingTech?: StackItem[];
 };
 

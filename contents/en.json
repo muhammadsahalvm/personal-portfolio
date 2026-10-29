@@ -61,7 +61,7 @@
       "title": "SalamMart",
       "category": "Full Stack E-Commerce",
       "year": "2026",
-      "status": "In Development",
+      "status": "Live",
       "description": "Full-stack grocery e-commerce platform with Customer, Staff and Owner/Admin modules.",
       "highlights": [
         "Role-based authentication and authorization with CSRF protection and form validation.",
@@ -71,7 +71,7 @@
         "Responsive customer interface built with Django MVT and a reusable CSS component system."
       ],
       "image": "/projects/salam-mart.png",
-      "demo": "",
+      "demo": "http://3.25.145.221/",
       "repo": "https://github.com/muhammadsahalvm/grocery-management-system-",
       "stack": [
         "Python",
