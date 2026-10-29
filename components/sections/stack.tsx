@@ -15,8 +15,8 @@ export default function Stack() {
 
     const categories = [
         {
-            title: dict.languagesStack || dict.programmingLanguagesStack || "Languages",
-            items: content.stack?.languages || content.stack?.programmingLanguages || [],
+            title: dict.languagesStack || "Languages",
+            items: content.stack?.languages || [],
         },
         {
             title: dict.frontendStack || "Frontend",
@@ -43,8 +43,8 @@ export default function Stack() {
             items: content.stack?.coreConcepts || [],
         },
         {
-            title: dict.aiGenerativeAiStack || dict.aiEmergingTechStack || "AI & Generative AI",
-            items: content.stack?.aiGenerativeAi || content.stack?.aiEmergingTech || [],
+            title: dict.aiGenerativeAiStack || "AI & Generative AI",
+            items: content.stack?.aiGenerativeAi || [],
         },
     ];
 
