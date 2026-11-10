@@ -58,6 +58,49 @@
     },
     {
       "id": "2",
+      "title": "MISTY — Luxury Fragrance E-Commerce",
+      "category": "Full Stack E-Commerce",
+      "year": "2026",
+      "status": "Production Ready",
+      "description": "High-end luxury perfume e-commerce web platform engineered with a decoupled React and Django REST Framework architecture, fragrance pyramid discovery, server-authoritative cart and order workflows, and Cloudinary media delivery.",
+      "highlights": [
+        "Decoupled full-stack architecture built with React 18, Vite, Tailwind CSS, and Django 5.2 LTS with DRF.",
+        "Stateless Simple JWT authentication with automated customer navigation and cart/buy intent preservation.",
+        "Server-authoritative pricing and inventory control with database transactions and row-locking to prevent overselling.",
+        "Interactive fragrance discovery showcasing top, heart, and base notes (fragrance pyramids) with Cloudinary CDN media delivery.",
+        "Persistent shopping bag, wishlist management, and Cash on Delivery (COD) order lifecycle with immutable snapshot records."
+      ],
+      "image": "/projects/misty-fragrance.jpg",
+      "demo": "https://misty-fragrance.vercel.app",
+      "repo": "https://github.com/muhammadsahalvm/Misty-Premium_Fragrance",
+      "stack": [
+        "Python",
+        "Django",
+        "Django REST Framework",
+        "React",
+        "MySQL",
+        "Tailwind CSS",
+        "JWT",
+        "Cloudinary"
+      ],
+      "caseStudy": {
+        "problem": "Luxury perfume e-commerce demands seamless browsing of complex fragrance pyramids, zero client-side price tampering, reliable stock locking to avoid overselling, and frictionless guest-to-authenticated checkout intent flows.",
+        "solution": "A decoupled React SPA on Vercel paired with a Django REST Framework backend on Render, backed by MySQL 8.0 ACID transactions, Cloudinary media CDN, and authoritative server-side cart/order computation.",
+        "architectureDiagram": {
+          "client": "Customer & Admin Web Interface",
+          "frontend": "React 18 / Vite / Tailwind CSS / React Router / Axios JWT Interceptors",
+          "backend": "Python 3.11 / Django 5.2 LTS / Django REST Framework / Simple JWT",
+          "orm": "Django ORM with Row-Level Locking (select_for_update) & Atomic Transactions",
+          "database": "MySQL 8.0+ Database (InnoDB Engine with ACID Transactions)",
+          "roles": [
+            "Customer Module: Fragrance Pyramids (Top/Heart/Base notes), Search, Bottle Sizing, Bag & Wishlist Persistence, COD Checkout",
+            "Admin & Operations: Product Catalog Maintenance, Cloudinary Media Management, Inventory Control & Order Fulfillment"
+          ]
+        }
+      }
+    },
+    {
+      "id": "3",
       "title": "SalamMart",
       "category": "Full Stack E-Commerce",
       "year": "2026",
@@ -99,7 +142,7 @@
       }
     },
     {
-      "id": "3",
+      "id": "4",
       "title": "AI Career Companion",
       "category": "AI / Web Application",
       "year": "2025",
@@ -121,7 +164,7 @@
       ]
     },
     {
-      "id": "4",
+      "id": "5",
       "title": "Salon Appointment Booking Platform",
       "category": "Web Application",
       "year": "2026",
@@ -141,7 +184,7 @@
       ]
     },
     {
-      "id": "5",
+      "id": "6",
       "title": "Food Waste Management E-Commerce Platform",
       "category": "Full Stack E-Commerce",
       "year": "2024",

@@ -4,23 +4,219 @@
     "description": "I work across React.js, JavaScript, Python, Django, Flask, REST APIs, and database-driven systems, with a focus on clear architecture and reliable interfaces.",
     "full": "Hi, I'm **Muhammad Sahal**, a Full Stack Developer based in Bangalore, India. I build responsive web applications with *React.js*, *JavaScript*, *Python*, *Django*, and *Flask*, connecting thoughtful interfaces to REST APIs and relational or document databases.\n\nMy experience includes building authentication systems, CRUD workflows, role-based applications, database-backed features, and a Smart Document Analyzer using *Retrieval-Augmented Generation (RAG)* and semantic search. I care about maintainable code, responsive design, and understanding the problem behind the product.\n\nI'm pursuing a B.E. in Information Science and Engineering at Yenepoya Institute of Technology, affiliated to VTU."
   },
-  "manifesto": ["RESPONSIVE BY DEFAULT", "CLEAN CODE, REAL SYSTEMS", "FULL STACK, FULL OWNERSHIP", "BUILD WITH PURPOSE", "USER-FIRST ENGINEERING", "ALWAYS LEARNING"],
+  "manifesto": [
+    "RESPONSIVE BY DEFAULT",
+    "CLEAN CODE, REAL SYSTEMS",
+    "FULL STACK, FULL OWNERSHIP",
+    "BUILD WITH PURPOSE",
+    "USER-FIRST ENGINEERING",
+    "ALWAYS LEARNING"
+  ],
   "projects": [
-    { "id": "1", "title": "Admission CRM & Lead Management Platform-Edu_Lead", "category": "Full Stack CRM / Web Application", "year": "2026", "description": "Rol tabanlı operasyonlar, adil nöbetçi danışman dağıtımı, dinamik yaşlanma takibi ve SLA izleme özelliklerine sahip kurumsal kabul CRM ve potansiyel müşteri yönetim platformu.", "highlights": ["Atomik veritabanı işlemleriyle danışmanlar arasında adil nöbetçi müşteri dağıtımı.", "Aşama atlamayı önleyen katı yaşam döngüsü durum makinesi (Yeni → İletişime Geçildi → İlgilendi → Planlandı → Dönüştürüldü).", "Dinamik müşteri yaşlanma sınıflandırması ve otomatik gecikmiş SLA tespiti."], "stack": ["Python", "Django", "Django REST Framework", "React", "MySQL", "Tailwind CSS", "JWT"], "image": "/projects/edu-lead.jpg", "demo": "https://edu-lead-rust.vercel.app", "repo": "https://github.com/muhammadsahalvm/Edu_lead" },
-    { "id": "2", "title": "Online Grocery E-Commerce Platform", "category": "Full Stack E-Commerce", "year": "2026", "demo": "http://3.25.145.221/", "description": "A full-stack e-commerce application with a Django backend, MySQL database, and JavaScript-driven frontend. The platform covers authentication, product management, cart, wishlist, checkout, and an admin dashboard.", "highlights": ["Designed relational database models and implemented CRUD operations with session-based authentication.", "Built product management, order tracking, analytics, and report-generation workflows for the admin dashboard.", "Connected responsive frontend interfaces with Django backend services."], "stack": ["Python", "Django", "MySQL", "HTML5", "Tailwind CSS", "JavaScript"], "image": "/projects/salam-mart.png", "repo": "https://github.com/muhammadsahalvm/grocery-management-system-" },
-    { "id": "3", "title": "AI-Powered Career Companion", "category": "AI / Web Application", "year": "2025", "description": "A career guidance application with responsive interfaces for resume analysis, job matching, and career recommendation workflows using HTML, CSS, JavaScript, and Flask integration.", "highlights": ["Developed responsive frontend interfaces for career workflows.", "Integrated Flask services for resume analysis, job matching, and career recommendations."], "stack": ["Python", "Flask", "Machine Learning", "HTML", "CSS", "JavaScript"], "image": "/projects/career-companion.png" },
-    { "id": "4", "title": "Salon Appointment Booking Platform", "category": "Web Application", "year": "2026", "description": "A responsive appointment booking platform with scheduling, booking, and admin management features, integrating frontend components with backend services and MongoDB for data persistence.", "highlights": ["Developed responsive booking and scheduling interfaces.", "Integrated frontend components with backend services.", "Used MongoDB for application data persistence."], "stack": ["React.js", "JavaScript", "MongoDB"], "image": "/projects/saloon-img.png" },
-    { "id": "5", "title": "Food Waste Management E-Commerce Platform", "category": "Web Application", "year": "2024", "description": "An e-commerce platform enabling restaurants to sell surplus food online through responsive interfaces and database-driven functionality.", "highlights": ["Developed responsive interfaces for surplus-food listings and online purchases.", "Integrated database-driven functionality using MySQL."], "stack": ["HTML", "CSS", "JavaScript", "MySQL"], "image": "/projects/food-waste-img.png", "repo": "https://github.com/muhammadsahalvm/leftover-food-selling-website-" }
+    {
+      "id": "1",
+      "title": "Admission CRM & Lead Management Platform-Edu_Lead",
+      "category": "Full Stack CRM / Web Application",
+      "year": "2026",
+      "description": "Rol tabanlı operasyonlar, adil nöbetçi danışman dağıtımı, dinamik yaşlanma takibi ve SLA izleme özelliklerine sahip kurumsal kabul CRM ve potansiyel müşteri yönetim platformu.",
+      "highlights": [
+        "Atomik veritabanı işlemleriyle danışmanlar arasında adil nöbetçi müşteri dağıtımı.",
+        "Aşama atlamayı önleyen katı yaşam döngüsü durum makinesi (Yeni → İletişime Geçildi → İlgilendi → Planlandı → Dönüştürüldü).",
+        "Dinamik müşteri yaşlanma sınıflandırması ve otomatik gecikmiş SLA tespiti."
+      ],
+      "stack": [
+        "Python",
+        "Django",
+        "Django REST Framework",
+        "React",
+        "MySQL",
+        "Tailwind CSS",
+        "JWT"
+      ],
+      "image": "/projects/edu-lead.jpg",
+      "demo": "https://edu-lead-rust.vercel.app",
+      "repo": "https://github.com/muhammadsahalvm/Edu_lead"
+    },
+    {
+      "id": "2",
+      "title": "MISTY — Luxury Fragrance E-Commerce",
+      "category": "Full Stack E-Commerce",
+      "year": "2026",
+      "status": "Production Ready",
+      "description": "React ve Django REST Framework ile geliştirilmiş, koku piramidi keşfi, sunucu yetkili sepet ve sipariş iş akışları ile Cloudinary medya dağıtımına sahip lüks parfüm e-ticaret platformu.",
+      "highlights": [
+        "React 18, Vite, Tailwind CSS ve Django 5.2 LTS REST Framework ile ayrık tam yığın mimari.",
+        "Oturum açma sonrasında sepete ekleme ve satın alma niyetini koruyan durumsuz Simple JWT kimlik doğrulama.",
+        "Aşırı satışı önleyen veritabanı işlemleri ve satır kilitleme ile sunucu yetkili fiyatlandırma ve stok yönetimi.",
+        "Cloudinary CDN ile desteklenen üst, kalp ve dip nota (koku piramidi) keşif arayüzü.",
+        "Kalıcı sepet, istek listesi yönetimi ve değişmez sipariş anlık görüntüleri ile Kapıda Ödeme (COD) döngüsü."
+      ],
+      "image": "/projects/misty-fragrance.jpg",
+      "demo": "https://misty-fragrance.vercel.app",
+      "repo": "https://github.com/muhammadsahalvm/Misty-Premium_Fragrance",
+      "stack": [
+        "Python",
+        "Django",
+        "Django REST Framework",
+        "React",
+        "MySQL",
+        "Tailwind CSS",
+        "JWT",
+        "Cloudinary"
+      ],
+      "caseStudy": {
+        "problem": "Lüks parfüm e-ticareti, karmaşık koku piramitlerinin sorunsuz taranmasını, istemci tarafı fiyat müdahalesinin engellenmesini ve güvenilir stok kilitlemeyi gerektirir.",
+        "solution": "Vercel üzerinde barındırılan React SPA, Render üzerinde Django REST Framework arka ucu, MySQL 8.0 ACID işlemleri ve Cloudinary medya CDN ile birleştirildi.",
+        "architectureDiagram": {
+          "client": "Müşteri ve Yönetici Web Arayüzü",
+          "frontend": "React 18 / Vite / Tailwind CSS / React Router / Axios JWT Interceptors",
+          "backend": "Python 3.11 / Django 5.2 LTS / Django REST Framework / Simple JWT",
+          "orm": "Django ORM (Satır Düzeyinde Kilitleme ve Atomik İşlemler)",
+          "database": "MySQL 8.0+ Veritabanı (InnoDB Motoru)",
+          "roles": [
+            "Müşteri Modülü: Koku Piramidi (Üst/Kalp/Dip notalar), Arama, Şişe Boyutu, Sepet & İstek Listesi, COD Sipariş",
+            "Yönetici & Operasyon: Ürün Kataloğu Yönetimi, Cloudinary Medya Yönetimi, Stok Kontrolü ve Sipariş Karşılama"
+          ]
+        }
+      }
+    },
+    {
+      "id": "3",
+      "title": "Online Grocery E-Commerce Platform",
+      "category": "Full Stack E-Commerce",
+      "year": "2026",
+      "demo": "http://3.25.145.221/",
+      "description": "A full-stack e-commerce application with a Django backend, MySQL database, and JavaScript-driven frontend. The platform covers authentication, product management, cart, wishlist, checkout, and an admin dashboard.",
+      "highlights": [
+        "Designed relational database models and implemented CRUD operations with session-based authentication.",
+        "Built product management, order tracking, analytics, and report-generation workflows for the admin dashboard.",
+        "Connected responsive frontend interfaces with Django backend services."
+      ],
+      "stack": [
+        "Python",
+        "Django",
+        "MySQL",
+        "HTML5",
+        "Tailwind CSS",
+        "JavaScript"
+      ],
+      "image": "/projects/salam-mart.png",
+      "repo": "https://github.com/muhammadsahalvm/grocery-management-system-"
+    },
+    {
+      "id": "4",
+      "title": "AI-Powered Career Companion",
+      "category": "AI / Web Application",
+      "year": "2025",
+      "description": "A career guidance application with responsive interfaces for resume analysis, job matching, and career recommendation workflows using HTML, CSS, JavaScript, and Flask integration.",
+      "highlights": [
+        "Developed responsive frontend interfaces for career workflows.",
+        "Integrated Flask services for resume analysis, job matching, and career recommendations."
+      ],
+      "stack": [
+        "Python",
+        "Flask",
+        "Machine Learning",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "image": "/projects/career-companion.png"
+    },
+    {
+      "id": "5",
+      "title": "Salon Appointment Booking Platform",
+      "category": "Web Application",
+      "year": "2026",
+      "description": "A responsive appointment booking platform with scheduling, booking, and admin management features, integrating frontend components with backend services and MongoDB for data persistence.",
+      "highlights": [
+        "Developed responsive booking and scheduling interfaces.",
+        "Integrated frontend components with backend services.",
+        "Used MongoDB for application data persistence."
+      ],
+      "stack": [
+        "React.js",
+        "JavaScript",
+        "MongoDB"
+      ],
+      "image": "/projects/saloon-img.png"
+    },
+    {
+      "id": "6",
+      "title": "Food Waste Management E-Commerce Platform",
+      "category": "Web Application",
+      "year": "2024",
+      "description": "An e-commerce platform enabling restaurants to sell surplus food online through responsive interfaces and database-driven functionality.",
+      "highlights": [
+        "Developed responsive interfaces for surplus-food listings and online purchases.",
+        "Integrated database-driven functionality using MySQL."
+      ],
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "MySQL"
+      ],
+      "image": "/projects/food-waste-img.png",
+      "repo": "https://github.com/muhammadsahalvm/leftover-food-selling-website-"
+    }
   ],
   "roadmap": [
-    { "id": "01", "year": "May 2026 - Present", "title": "Full Stack Intern", "company": "Emdata Networks Private Limited, Bangalore", "description": "Developing responsive web applications with Python, Django, React, HTML, CSS3, Bootstrap, and JavaScript. Building RESTful APIs, CRUD workflows, authentication and authorization, relational databases, and Django MVT features.", "stack": ["Python", "Django", "React", "REST APIs", "SQL"] },
-    { "id": "02", "year": "Jan 2026 - Apr 2026", "title": "AI & Cloud Computing Intern (Virtual)", "company": "SuprMentr", "description": "Developed a Flask password authentication system with session management and bcrypt hashing, and built a Smart Document Analyzer using RAG, semantic search, and document question-answering workflows.", "stack": ["Python", "Flask", "RAG", "Semantic Search"] }
+    {
+      "id": "01",
+      "year": "May 2026 - Present",
+      "title": "Full Stack Intern",
+      "company": "Emdata Networks Private Limited, Bangalore",
+      "description": "Developing responsive web applications with Python, Django, React, HTML, CSS3, Bootstrap, and JavaScript. Building RESTful APIs, CRUD workflows, authentication and authorization, relational databases, and Django MVT features.",
+      "stack": [
+        "Python",
+        "Django",
+        "React",
+        "REST APIs",
+        "SQL"
+      ]
+    },
+    {
+      "id": "02",
+      "year": "Jan 2026 - Apr 2026",
+      "title": "AI & Cloud Computing Intern (Virtual)",
+      "company": "SuprMentr",
+      "description": "Developed a Flask password authentication system with session management and bcrypt hashing, and built a Smart Document Analyzer using RAG, semantic search, and document question-answering workflows.",
+      "stack": [
+        "Python",
+        "Flask",
+        "RAG",
+        "Semantic Search"
+      ]
+    }
   ],
-  "education": { "degree": "B.E. in Information Science and Engineering", "period": "2022 - 2026", "institution": "Yenepoya Institute of Technology", "location": "Mangalore, Karnataka", "affiliation": "Affiliated to VTU" },
+  "education": {
+    "degree": "B.E. in Information Science and Engineering",
+    "period": "2022 - 2026",
+    "institution": "Yenepoya Institute of Technology",
+    "location": "Mangalore, Karnataka",
+    "affiliation": "Affiliated to VTU"
+  },
   "certifications": [
-    { "name": "Microsoft Certified: Azure Fundamentals", "issuer": "Microsoft", "date": "Jan 2026" },
-    { "name": "Building LLM Applications with Prompt Engineering", "issuer": "NVIDIA", "date": "Aug 2025" },
-    { "name": "Tata Group - Data Visualisation: Empowering Business with Effective Insights (Job Simulation)", "issuer": "Forage", "date": "Apr 2025" },
-    { "name": "Rapid Development for AI Services", "issuer": "Eitran", "date": "Dec 2024" }
+    {
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "date": "Jan 2026"
+    },
+    {
+      "name": "Building LLM Applications with Prompt Engineering",
+      "issuer": "NVIDIA",
+      "date": "Aug 2025"
+    },
+    {
+      "name": "Tata Group - Data Visualisation: Empowering Business with Effective Insights (Job Simulation)",
+      "issuer": "Forage",
+      "date": "Apr 2025"
+    },
+    {
+      "name": "Rapid Development for AI Services",
+      "issuer": "Eitran",
+      "date": "Dec 2024"
+    }
   ]
 }
